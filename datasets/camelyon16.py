@@ -61,7 +61,4 @@ with open(csv_file, 'r') as file:
 
 print("File sorting completed.")
 
-
-
-if __name__ == "__main__":
     

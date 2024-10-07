@@ -5,18 +5,19 @@ import sys
 # Define the folder paths
 # Source Path
 PROJECT_DIR = os.environ.get("PROJECT_DIR")
-DATA_ROOT = '/project/hnguyen2/hqvo3/Datasets/digital_pathology/public/CAMELYON16'
+SRC_DATA_ROOT = os.path.abspath('/project/hnguyen2/hqvo3/Datasets/digital_pathology/public/CAMELYON16') 
+DST_DATA_ROOT = os.path.abspath('/project/hnguyen2/mvu9/datasets/camelyon16') 
 sys.path.append(PROJECT_DIR)
 
 
-src_base_path = DATA_ROOT 
+src_base_path = SRC_DATA_ROOT 
 image_folder = os.path.join(src_base_path, 'images')
 masks_folder = os.path.join(src_base_path, 'masks')  # To Compute FROC
 annotations_folder = os.path.join(src_base_path, 'annotations')  # For deepzoom_tiler
 csv_file = os.path.join(src_base_path, 'evaluation', 'reference.csv')
 
 # Destination Path
-dest_base_path = os.path.join(PROJECT_DIR, 'data/camelyon16')
+dest_base_path = DST_DATA_ROOT 
 normal_folder = os.path.join(dest_base_path, '0_normal')
 tumor_folder = os.path.join(dest_base_path, '1_tumor')
 

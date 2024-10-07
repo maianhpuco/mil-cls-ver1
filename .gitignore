@@ -1,0 +1,8 @@
+.gitignore
+__pycache__ 
+
+env* 
+/data/camelyon16_bk 
+#/data/camelyon16
+
+

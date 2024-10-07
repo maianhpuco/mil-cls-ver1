@@ -5,7 +5,7 @@ import sys
 # Define the folder paths
 # Source Path
 PROJECT_DIR = os.environ.get("PROJECT_DIR")
-DATA_ROOT = 'project/hnguyen2/hqvo3/Datasets/digital_pathology/public/CAMELYON16'
+DATA_ROOT = '/project/hnguyen2/hqvo3/Datasets/digital_pathology/public/CAMELYON16'
 sys.path.append(PROJECT_DIR)
 
 

@@ -316,7 +316,7 @@ def blend_and_visualize(
     # save and close figure
     f = figure_path + ".png"
     fig.savefig(f, bbox_inches="tight", pad_inches=0)
-    plt.show()
+    # plt.show()
     plt.close(fig)
     print(f"saved: {f}")
 
@@ -327,13 +327,13 @@ def blend_and_visualize(
             input_img_size[1] // dpi * 6, input_img_size[0] // dpi * 6
         )
         fig.set_dpi(dpi)
-        plt.axis("off")
+        # plt.axis("off")
         input_image = np.array(input_image)
-        ax.imshow(input_image)
+        # ax.imshow(input_image)
         figure_path = figure_path + "_slide.png"
         fig.savefig(figure_path, bbox_inches="tight", pad_inches=0)
-        plt.show()
-        plt.close(fig)
+        # plt.show()
+        # plt.close(fig)
         print(f"saved: {figure_path}")
 
 

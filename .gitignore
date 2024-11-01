@@ -3,3 +3,5 @@ weight/
 roi_output/
 
 datasets/
+
+**/.DS_Store

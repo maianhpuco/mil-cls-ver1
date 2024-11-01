@@ -86,12 +86,14 @@ class TileWorker(Process):
 
                 (x, y), mlevel = dz.get_tile_coordinates(level, address)[0:2]
                 factor = 2 ** mlevel
-                annotation_file = 'datasets/camelyon16/annotations/' + c_slide.split('/')[-1].split('.')[0] + '.xml'
+
+                annotation_file = 'datasets/camelyon16/annotations/' + self._slidepath.split('/')[-1].split('.')[0] + '.xml'
                 label = 0
+                
                 if os.path.isfile(annotation_file):
                     label = self.does_square_have_cancer(annotation_file, x, y, self._tile_size * factor)
                 tile_label_csv = open("datasets/camelyon16/tile_label.csv", "a")
-                tile_label_csv.write(f'{c_slide}/{outfile},{label}\n')
+                tile_label_csv.write(f'{self._slidepath}/{outfile},{label}\n')
 
                 if not (w == self._tile_size and h == self._tile_size):
                     tile = tile.resize((self._tile_size, self._tile_size))
@@ -344,6 +346,7 @@ if __name__ == '__main__':
     tile_label_csv.write('slide_name,label\n')
     tile_label_csv.close()
     for idx, c_slide in enumerate(all_slides):
+        print(idx, c_slide)
         print('Process slide {}/{} : {}'.format(idx + 1, len(all_slides), c_slide))
         DeepZoomStaticTiler(c_slide, 'WSI_temp', levels, args.base_mag, args.objective, args.format, args.tile_size,
                             args.overlap, True, args.quality, args.workers, args.background_t).run()
